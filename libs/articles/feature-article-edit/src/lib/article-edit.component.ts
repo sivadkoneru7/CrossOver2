@@ -58,6 +58,7 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
   }
 
   updateForm(changes: any) {
+    changes.tagList = changes.tagList.split(',').map((t: string) => t.trim());
     this.store.dispatch(formsActions.updateData({ data: changes }));
   }
 
